@@ -1,0 +1,21 @@
+image: python:3.7
+  
+before_script:
+  - python --version
+  - pip install -r requirements.txt
+
+stages:
+  - build
+  - test
+  
+build:
+  script:
+    - echo "building..."
+    - python -m venv venv
+    - source venv/bin/activate
+    
+test:
+  script:
+  - echo "testing..."
+  - source venv/bin/activate
+  - python math_test.py 
